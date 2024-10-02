@@ -32,7 +32,7 @@ class Users::Create < ActiveInteraction::Base
   private
 
   def email_uniqueness
-    errors.add(:email, 'занято') if User.exists?(email: email)
+    errors.add(:email) if User.exists?(email: email)
   end
 
   def user_attributes

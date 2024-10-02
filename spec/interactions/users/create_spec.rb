@@ -31,7 +31,7 @@ RSpec.describe Users::Create, type: :interaction do
     User.create!(valid_inputs.except(:interests, :skills))
     result = Users::Create.run(valid_inputs)
     expect(result.valid?).to be false
-    expect(result.errors.full_messages).to include('Email занято')
+    expect(result.errors.full_messages).to include('Email is invalid')
   end
 
   it 'создание пользователя с невалид возрастом' do
